@@ -1,0 +1,28 @@
+{
+	"name": "exercisebook/discuzq-routedemo",
+	"description": "DiscuzQ Route Demo",
+	"type": "library",
+	"authors": [
+		{
+			"name": "Eric_Lian",
+			"email": "public@superexercisebook.com"
+		}
+	],
+	"require": {
+		"discuz/core": ">=v1.0.200911"
+	},
+	"license": "MIT",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://cloud.discuz.chat"
+		}
+	],
+	"version": "0.0.1",
+	"minimum-stability": "stable",
+	"autoload": {
+		"psr-4": {
+			"ExerciseBook\\DiscuzQRouteDemo\\": "src/"
+		}
+	}
+}
