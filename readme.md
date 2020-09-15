@@ -8,5 +8,5 @@ Discuz Q 二开样例 - 添加自己的路由
 
 # 代码流程解释
 1. 先看 `RouteProvider.php` 文件中的 `boot()` 函数。
-2. 再看 `ApiTest.php`。
+2. 再看 `ApiTestController.php`。
 3. 最后看 `TestApiSerializer.php`。

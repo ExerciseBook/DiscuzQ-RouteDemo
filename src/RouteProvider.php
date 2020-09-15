@@ -45,7 +45,7 @@ class RouteProvider extends AbstractServiceProvider
         // 添加一个路由组
         $route->group('/api/route-demo', function (RouteCollection $route) {
             // 添加一个路由
-            $route->get('/api-demo', 'routedemo.apidemo', ApiTest::class);
+            $route->get('/api-demo', 'routedemo.apidemo', ApiTestController::class);
         });
     }
 }

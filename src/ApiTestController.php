@@ -8,7 +8,7 @@ use Discuz\Api\Controller\AbstractResourceController;
 use Psr\Http\Message\ServerRequestInterface;
 use Tobscure\JsonApi\Document;
 
-class ApiTest extends AbstractResourceController
+class ApiTestController extends AbstractResourceController
 {
 
     /**
