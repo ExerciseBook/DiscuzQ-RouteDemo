@@ -2,6 +2,7 @@
 
 
 namespace ExerciseBook\DiscuzQRouteDemo;
+
 use App\Models\Attachment;
 use Discuz\Api\Serializer\AbstractSerializer;
 
