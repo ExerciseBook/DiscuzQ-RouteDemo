@@ -16,3 +16,24 @@ Discuz Q 二开样例 - 添加自己的路由
 ## 对于页面路由
 1. 先看 `RouteProvider.php` 文件中的 `boot()` 函数。
 2. 再看 `TestViewController.php`。
+
+## 对于中间件
+1. 先看 `RouteProvider.php` 文件中的 `boot()` 函数。
+2. 再看 `RouteProvider.php` 文件中的 `register()` 函数。
+3. 最后看 `TestMiddleware.php`。
+4. 注：需要在 `Discuz\Http\Server` 类 `listen()` 方法中将
+    ```php
+    $pipe->pipe(new RequestHandler([
+        '/api' => 'discuz.api.middleware',
+        '/' => 'discuz.web.middleware'
+    ], $this->app));
+    ```
+    修改为
+    ```php
+    $pipe->pipe(new RequestHandler([
+        '/api' => 'discuz.api.middleware',
+        '/' => 'discuz.web.middleware',
+        '/view-demo' => 'routedemo.middleware'
+    ], $this->app));
+    ```
+5. 现在的解决方案不算特别优雅，望大佬们改进。

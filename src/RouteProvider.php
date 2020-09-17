@@ -5,27 +5,45 @@ namespace ExerciseBook\DiscuzQRouteDemo;
 use Discuz\Foundation\AbstractServiceProvider;
 use Discuz\Http\Middleware\DispatchRoute;
 use Discuz\Http\RouteCollection;
+use Discuz\Foundation\Application;
+use Illuminate\View\ViewServiceProvider;
+use Laminas\Stratigility\MiddlewarePipe;
 
 class RouteProvider extends AbstractServiceProvider
 {
     /**
-     * 注册服务.
-     *
-     * @return void
+     * @var Application
      */
-    public function register()
-    {
+    protected Application $app;
 
+    /**
+     * RouteProvider constructor.
+     * @param Application $app
+     */
+    public function __construct(Application $app)
+    {
+        $this->app = $app;
     }
 
     /**
-     * @param string $string
-     * @param $default
-     * @return mixed
+     * 注册服务.
      */
-    public function get_config($app, string $string, $default)
+    public function register()
     {
-        return (Arr::get(app()['discuz.config'], $string, $default));
+        // 创建一个名为 routedemo.middleware 的实例并放到容器中
+        $this->app->singleton('routedemo.middleware', function (Application $app) {
+
+            $app->register(ViewServiceProvider::class);
+
+            $pipe = new MiddlewarePipe();
+            $pipe->pipe($app->make(TestMiddleware::class));
+            return $pipe;
+        });
+
+        // 保证路由中间件最后执行
+        $this->app->afterResolving('routedemo.middleware', function (MiddlewarePipe $pipe) {
+            $pipe->pipe($this->app->make(DispatchRoute::class));
+        });
     }
 
     /**
@@ -33,6 +51,9 @@ class RouteProvider extends AbstractServiceProvider
      */
     public function boot()
     {
+        // 注册服务
+        $this->app->register(static::class);
+
         // 获取路由控制器
         $route = $this->getRoute();
 
