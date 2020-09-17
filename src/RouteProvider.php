@@ -65,6 +65,9 @@ class RouteProvider extends AbstractServiceProvider
 
         // 添加一个普通页面路由
         $route->get('/view-demo', 'routedemo.viewdemo', TestViewController::class);
+
+        // 添加一个普通页面路由
+        $route->get('/middleware-demo', 'routedemo.middlewaredemo', TestViewController::class);
     }
 
     /**

@@ -33,7 +33,7 @@ Discuz Q 二开样例 - 添加自己的路由
     $pipe->pipe(new RequestHandler([
         '/api' => 'discuz.api.middleware',
         '/' => 'discuz.web.middleware',
-        '/view-demo' => 'routedemo.middleware'
+        '/middleware-demo' => 'routedemo.middleware'
     ], $this->app));
     ```
 5. 现在的解决方案不算特别优雅，望大佬们改进。
