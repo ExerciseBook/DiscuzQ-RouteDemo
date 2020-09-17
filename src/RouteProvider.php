@@ -3,6 +3,7 @@
 namespace ExerciseBook\DiscuzQRouteDemo;
 
 use Discuz\Foundation\AbstractServiceProvider;
+use Discuz\Http\Middleware\DispatchRoute;
 use Discuz\Http\RouteCollection;
 
 class RouteProvider extends AbstractServiceProvider
@@ -14,6 +15,7 @@ class RouteProvider extends AbstractServiceProvider
      */
     public function register()
     {
+
     }
 
     /**
@@ -34,11 +36,14 @@ class RouteProvider extends AbstractServiceProvider
         // 获取路由控制器
         $route = $this->getRoute();
 
-        // 添加一个路由组
+        // API 路由组
         $route->group('/api/route-demo', function (RouteCollection $route) {
-            // 添加一个路由
+            // 添加一个 API 路由
             $route->get('/api-demo', 'routedemo.apidemo', TestApiController::class);
         });
+
+        // 添加一个普通页面路由
+        $route->get('/view-demo', 'routedemo.viewdemo', TestViewController::class);
     }
 
     /**

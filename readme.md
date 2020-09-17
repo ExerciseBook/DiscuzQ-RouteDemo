@@ -7,6 +7,12 @@ Discuz Q 二开样例 - 添加自己的路由
 3. 将 `route/web.php` 中的 `$route->get('/{other:.*}', 'other', \App\Http\Controller\IndexController::class);` 这行注释掉以确保路由不冲突。
 
 # 代码流程解释
+
+## 对于 API 路由
 1. 先看 `RouteProvider.php` 文件中的 `boot()` 函数。
 2. 再看 `TestApiController.php`。
 3. 最后看 `TestApiSerializer.php`。
+
+## 对于页面路由
+1. 先看 `RouteProvider.php` 文件中的 `boot()` 函数。
+2. 再看 `TestViewController.php`。
