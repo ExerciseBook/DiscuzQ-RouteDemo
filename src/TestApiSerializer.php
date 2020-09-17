@@ -6,6 +6,13 @@ namespace ExerciseBook\DiscuzQRouteDemo;
 use App\Models\Attachment;
 use Discuz\Api\Serializer\AbstractSerializer;
 
+/**
+ * 数据序列化类
+ * 将控制器处理好的内容序列化为前端可用的信息
+ *
+ * Class TestApiSerializer
+ * @package ExerciseBook\DiscuzQRouteDemo
+ */
 class TestApiSerializer extends AbstractSerializer
 {
     /**
@@ -24,6 +31,6 @@ class TestApiSerializer extends AbstractSerializer
      */
     public function getDefaultAttributes($model)
     {
-        return ["value" => $model];
+        return ["Let the bass kick ". $model->msg];
     }
 }
