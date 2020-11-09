@@ -9,6 +9,7 @@ Discuz Q 二开样例 - 添加自己的路由
 # 代码流程解释
 
 ## 对于 API 路由
+1. 官方文档： <https://discuz.com/docs/api.html>
 1. 先看 `RouteProvider.php` 文件中的 `boot()` 函数。
 2. 再看 `TestApiController.php`。
 3. 最后看 `TestApiSerializer.php`。

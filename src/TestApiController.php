@@ -29,11 +29,13 @@ class TestApiController extends AbstractResourceController
 
     /**
      * 重写本方法以处理用户请求
+     * 具体见文档：https://discuz.com/docs/api.html
+     *
      * 返回的内容将传递到 Serializer 类的 getDefaultAttributes 函数中第一个参数
      *
      * 返回值类型表
      * AbstractCreateController     Object
-     * AbstractDeleteController     未知
+     * AbstractDeleteController     返回空
      * AbstractListController       Array of Object
      * AbstractResourceController   Object
      *
